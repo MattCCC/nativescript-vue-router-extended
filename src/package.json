@@ -1,7 +1,7 @@
 {
-	"name": "nativescript-vue-router",
+	"name": "nativescript-vue-router-extended",
 	"version": "0.0.1",
-	"description": "NativeScript Vue Router.",
+	"description": "NativeScript Vue Router Extended for NativeScript Vue hybrid Apps.",
 	"main": "vue-router",
 	"nativescript": {
 		"platforms": {
@@ -11,7 +11,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/MattCCC/nativescript-vue-router.git"
+		"url": "https://github.com/MattCCC/nativescript-vue-router-extended.git"
 	},
 	"scripts": {
 		"tsc": "ts-patch install && ts-patch check && tsc -skipLibCheck",
@@ -26,7 +26,7 @@
 		"demo.ios": "npm i && ts-patch install && cd ../demo && ns run ios --no-hmr",
 		"demo.android": "npm i && ts-patch install && cd ../demo && ns run android",
 		"demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
-		"plugin.prepare": "npm run build && cd ../demo && ns plugin remove nativescript-vue-router && ns plugin add ../src",
+		"plugin.prepare": "npm run build && cd ../demo && ns plugin remove nativescript-vue-router-extended && ns plugin add ../src",
 		"clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i && ts-patch install"
 	},
 	"keywords": [
@@ -43,10 +43,10 @@
 		"email": "deindesign.pl@gmail.com"
 	},
 	"bugs": {
-		"url": "https://github.com/MattCCC/nativescript-vue-router/issues"
+		"url": "https://github.com/MattCCC/nativescript-vue-router-extended/issues"
 	},
 	"license": "Apache-2.0",
-	"homepage": "https://github.com/MattCCC/nativescript-vue-router",
+	"homepage": "https://github.com/MattCCC/nativescript-vue-router-extended",
 	"devDependencies": {
 		"@nativescript/core": "^7.1.0",
 		"@nativescript/types": "^7.1.0",
