@@ -1,0 +1,6 @@
+# General
+.stylelintrc.json
+**/*.js
+**/*.ts
+**/*.md
+node_modules
