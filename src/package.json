@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-vue-router-extended",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "NativeScript Vue Router Extended for NativeScript Vue hybrid Apps.",
 	"main": "vue-router",
 	"nativescript": {
@@ -17,7 +17,7 @@
 		"tsc": "ts-patch install && ts-patch check && tsc -skipLibCheck",
 		"build": "npm i && npm run tsc && npm run build.native",
 		"pack": "cd ../publish; chmod +rx pack.sh; ./pack.sh",
-		"publish": "cd ../publish; chmod +rx publish.sh; ./publish.sh",
+		"pckgpublish": "cd ../publish; chmod +rx publish.sh; ./publish.sh",
 		"release": "npm version patch && git push --tags",
 		"build.native": "node scripts/build-native.js",
 		"tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
