@@ -19,7 +19,7 @@ import routerMixin from "./router-mixin";
  * @param {RouterService} routerOptions Router Service options
  * @returns {RouterService} Router Service Instance
  */
-const createRouter = (
+export const createRouter = (
   vueRouterOptions: NSVueRouterOptions,
   routerOptions: RouterServiceOptions
 ) => {
@@ -53,8 +53,6 @@ const createRouter = (
 
   return router;
 };
-
-export { createRouter };
 
 export default {
   createRouter,

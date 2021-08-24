@@ -1,3 +1,4 @@
+import { createRouter } from "./vue-router.common";
+import { Route } from './typings/router-service';
 
-export {
-};
+export { createRouter, Route };

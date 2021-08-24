@@ -66,22 +66,22 @@ export interface RouterServiceOptions {
     /**
      * Callback triggered when routeTo/push is invoked
      */
-    routeToCallback: RouteToCallback;
+    routeToCallback?: RouteToCallback;
 
     /**
      * Callback triggered when routeBack/back is invoked
      */
-    routeBackCallback: RouteBackCallback;
+    routeBackCallback?: RouteBackCallback;
 
     /**
      * Vue Instance
      */
-    vm: any;
+    vm?: any;
 
     /**
      * NS Frame Instance
      */
-    frame: any;
+    frame?: any;
 
     /**
      * Path to a route used as a fallback (default route), when user tries to navigate back but no path exists

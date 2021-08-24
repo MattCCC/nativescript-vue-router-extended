@@ -3,7 +3,7 @@ declare module 'vue/types/vue' {
 
   import type {
       RouterService,
-  } from '@shared/types/services/router/router-service';
+  } from '../router-service';
 
   interface VueConstructor<V extends Vue = Vue> {
     $router: RouterService;
