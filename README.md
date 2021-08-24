@@ -52,7 +52,7 @@ or
 yarn add nativescript-vue-router-extended
 ```
 
-[nativescript-vue-router-extended](https://www.npmjs.com/package/nativescript-vue-router-extended)
+[![NPM](https://nodei.co/npm/nativescript-vue-router-extended.png)](https://npmjs.org/package/nativescript-vue-router-extended)
 
 ## Usage & Examples
 
