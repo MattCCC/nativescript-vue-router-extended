@@ -41,7 +41,7 @@ Nativescript 7.1+ is required for the plugin to run properly. It might be workin
 ## Installation
 
 ```javascript
-tns plugin add nativescript-vue-router-extended
+ns plugin add nativescript-vue-router-extended
 
 or
 
