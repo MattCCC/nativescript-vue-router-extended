@@ -1,4 +1,5 @@
 # NativeScript Vue Router
+
 [npm-url]: https://npmjs.org/package/nativescript-vue-router-extended
 [npm-image]: http://img.shields.io/npm/v/nativescript-vue-router-extended.svg
 
@@ -21,6 +22,7 @@ Please file an issue or make a PR if you spot any problems or you have any furth
 - [API & Limitations](#api-limitations)
 
 ## Features
+
 - Same hooks and guards for mobile and web
 - Additional action dispatcher to dispatch actions to store automatically when changing routes
 - Vue-Router 4 API compatibility
@@ -28,6 +30,7 @@ Please file an issue or make a PR if you spot any problems or you have any furth
 - TypeScript Support out of the box
 
 ## Todo
+
 - Test coverage
 - More compatibility (PRs and issues are welcomed so don't hesistate to report please)
 
@@ -111,9 +114,8 @@ const router = createRouter(
   }
 );
 
-// From now on you can access this.$router, this.$routeBack and special this.$routeTo inside of the components
-
 // Register a global guard (optional)
+// You can also use global router.beforeResolve guard and router.afterEach hook
 router.beforeEach((to) => {
   // For example, verify per route access rules
   if (!canAccessRoute(to)) {
@@ -123,7 +125,14 @@ router.beforeEach((to) => {
   return true;
 });
 
-// You can also use global router.beforeResolve guard and router.afterEach hook
+// From now on you can access this.$router, this.$routeBack and special this.$routeTo inside of the components, example:
+this.$routeTo("/movies", {
+  // Clear History is a NativeScript setting
+  clearHistory: true,
+  props: {
+    movieId: 12,
+  },
+});
 ```
 
 ## New hooks for pages
@@ -163,13 +172,13 @@ export default {
 </script>
 ```
 
-| NS Event | Mapped as         | Description                                                                                                                                                                                                                    |
-| ------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| navigatingFrom     | `beforeRouteLeave`  | Before user leaves the route                                                                                                                                                                                                   |
-| navigatingTo       | `beforeRouteEnter`  | Before user enters a route                                                                                                                                                                                                     |
-| -                  | `beforeRouteUpdate` | Before route is changed but view remains the same. This can happen when path is exactly the same but you change e.g. passed prop to the route. Please refer to Vue-Router docs for more details.                               |
-| navigatedTo        | `beforeRouteEnter`  | To trigger it properly you need to access component instance. You can use `next(vm => ...)` callback within `beforeRouteEnter()`. Please check Vue-Router docs for more details.                                               |
-| navigatedFrom      | -                 | This event is tricky to control for developers. There is no exact mapping of it in the router. For store state cleanup use build-in meta dispatcher instead. For component state you could opt for using `beforeRouteLeave()`. You could potentially use `navigatedFrom` directly inside of the page but you |
+| NS Event       | Mapped as           | Description                                                                                                                                                                                                                                                                                                  |
+| -------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| navigatingFrom | `beforeRouteLeave`  | Before user leaves the route                                                                                                                                                                                                                                                                                 |
+| navigatingTo   | `beforeRouteEnter`  | Before user enters a route                                                                                                                                                                                                                                                                                   |
+| -              | `beforeRouteUpdate` | Before route is changed but view remains the same. This can happen when path is exactly the same but you change e.g. passed prop to the route. Please refer to Vue-Router docs for more details.                                                                                                             |
+| navigatedTo    | `beforeRouteEnter`  | To trigger it properly you need to access component instance. You can use `next(vm => ...)` callback within `beforeRouteEnter()`. Please check Vue-Router docs for more details.                                                                                                                             |
+| navigatedFrom  | -                   | This event is tricky to control for developers. There is no exact mapping of it in the router. For store state cleanup use build-in meta dispatcher instead. For component state you could opt for using `beforeRouteLeave()`. You could potentially use `navigatedFrom` directly inside of the page but you |
 
 ## API & Limitations
 
