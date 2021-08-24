@@ -21,7 +21,7 @@ import routerMixin from "./router-mixin";
  */
 export const createRouter = (
   vueRouterOptions: NSVueRouterOptions,
-  routerOptions: RouterServiceOptions
+  routerOptions: RouterServiceOptions = {}
 ) => {
   const vm = routerOptions.vm || (Vue as any).prototype;
 
