@@ -93,7 +93,7 @@ export default {
       const to = this.$router.getNewRoute();
       const from = this.$router.getCurrentRoute();
 
-      if (this.$options.beforeRouteUpdate && to.path === from.path) {
+      if (this.$options.beforeRouteUpdate && to && from && to.path === from.path) {
         this.$options.beforeRouteUpdate.call(
           this,
           to,
