@@ -108,8 +108,8 @@ export class RouterService {
   public constructor(
     { routes }: NSVueRouterOptions,
     {
-      routeToCallback,
-      routeBackCallback,
+      routeToCallback = null,
+      routeBackCallback = null,
       routeBackFallbackPath = "",
       logger = null,
       frame = null,
@@ -458,11 +458,17 @@ export class RouterService {
     }
 
     if (isNavigatingBack) {
-      this.routeBackCallback(newRoute, routeOptions);
+      // Ensure that callback is specified
+      if (this.routeBackCallback) {
+        this.routeBackCallback(newRoute, routeOptions);
+      }
 
       this.vm.$navigateBack(routeOptions);
     } else {
-      this.routeToCallback(newRoute, routeOptions);
+      // Ensure that callback is specified
+      if (this.routeToCallback) {
+        this.routeToCallback(newRoute, routeOptions);
+      }
 
       this.vm.$navigateTo(newRoute.component, routeOptions);
     }
