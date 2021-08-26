@@ -106,7 +106,7 @@ export class RouterService {
    * @param {RouterService} routerOptions Router Service options
    */
   public constructor(
-    { routes }: NSVueRouterOptions,
+    { routes = [] }: NSVueRouterOptions,
     {
       routeToCallback = null,
       routeBackCallback = null,
