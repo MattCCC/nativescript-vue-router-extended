@@ -2,7 +2,8 @@
 	"name": "nativescript-vue-router-extended",
 	"version": "1.0.7",
 	"description": "NativeScript Vue Router Extended for NativeScript Vue hybrid Apps.",
-	"main": "vue-router",
+	"main": "index",
+	"typings": "index.d.ts",
 	"nativescript": {
 		"platforms": {
 			"android": "7.1.0",
