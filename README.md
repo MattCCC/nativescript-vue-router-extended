@@ -14,12 +14,12 @@ Please file an issue or make a PR if you spot any problems or you have any furth
 ## Table of Contents
 
 - [Features](#features)
-- [Todo](#todo)
 - [Prerequisites / Requirements](#prerequisites-requirements)
 - [Installation](#installation)
 - [Usage & Examples](#usage-examples)
 - [New hooks for pages](#new-hooks-for-pages)
 - [API & Limitations](#api-limitations)
+- [Troubleshooting](#troubleshooting)
 
 ## Features
 
@@ -28,11 +28,6 @@ Please file an issue or make a PR if you spot any problems or you have any furth
 - Vue-Router 4 API compatibility
 - NativeScript-Vue compatible
 - TypeScript Support out of the box
-
-## Todo
-
-- Test coverage
-- More compatibility (PRs and issues are welcomed so don't hesistate to report please)
 
 ## Prerequisites / Requirements
 
@@ -187,3 +182,7 @@ This plugin aims for compatibility with Vue Router 3+ and Vue Router 4+. Both sh
 ## License
 
 Apache License Version 2.0, January 2004
+
+## Troubleshooting
+
+Please file an issue. You can use the template but it is not required. Just simply write what is your issue so we can try to reproduce and fix it.
