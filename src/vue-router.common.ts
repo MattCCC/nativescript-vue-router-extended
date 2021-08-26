@@ -23,23 +23,24 @@ export const createRouter = (
   vueRouterOptions: NSVueRouterOptions,
   routerOptions: RouterServiceOptions = {}
 ) => {
-  const vm = routerOptions.vm || (Vue as any).prototype;
+  const vm = routerOptions.vm || Vue;
+  const proto = (Vue as any).prototype;
 
   const router = new RouterService(vueRouterOptions, {
     frame: Frame,
-    vm,
+    vm: proto,
     ...routerOptions,
   });
 
   // Vue 3 compatibility
-  if (vm.config && vm.config.globalProperties) {
-    vm.config.globalProperties.$routeTo = router.push.bind(router);
-    vm.config.globalProperties.$routeBack = router.back.bind(router);
-    vm.config.globalProperties.$router = router;
+  if (proto.config && proto.config.globalProperties) {
+    proto.config.globalProperties.$routeTo = router.push.bind(router);
+    proto.config.globalProperties.$routeBack = router.back.bind(router);
+    proto.config.globalProperties.$router = router;
   } else {
-    vm.$routeTo = router.push.bind(router);
-    vm.$routeBack = router.back.bind(router);
-    vm.$router = router;
+    proto.$routeTo = router.push.bind(router);
+    proto.$routeBack = router.back.bind(router);
+    proto.$router = router;
   }
 
   if (vm.mixin) {
@@ -47,8 +48,8 @@ export const createRouter = (
   }
 
   // Register Action Dispatcher if store is available
-  if (vm.$store) {
-    registerActionDispatcher(router, vm.$store);
+  if (proto.$store) {
+    registerActionDispatcher(router, proto.$store);
   }
 
   return router;
