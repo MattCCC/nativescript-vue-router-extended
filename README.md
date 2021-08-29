@@ -18,6 +18,7 @@ Please file an issue or make a PR if you spot any problems or you have any furth
 - [Installation](#installation)
 - [Usage & Examples](#usage-examples)
 - [New hooks for pages](#new-hooks-for-pages)
+- [TypeScript](#typescript)
 - [API & Limitations](#api-limitations)
 - [Troubleshooting](#troubleshooting)
 
@@ -174,6 +175,9 @@ export default {
 | -              | `beforeRouteUpdate` | Before route is changed but view remains the same. This can happen when path is exactly the same but you change e.g. passed prop to the route. Please refer to Vue-Router docs for more details.                                                                                                             |
 | navigatedTo    | `beforeRouteEnter`  | To trigger it properly you need to access component instance. You can use `next(vm => ...)` callback within `beforeRouteEnter()`. Please check Vue-Router docs for more details.                                                                                                                             |
 | navigatedFrom  | -                   | This event is tricky to control for developers. There is no exact mapping of it in the router. For store state cleanup use build-in meta dispatcher instead. For component state you could opt for using `beforeRouteLeave()`. |
+
+## TypeScript Support
+If you need a TS support and it's not detected in your project for some reason, you can copy paste content of [typings/shims.vue.d.ts](https://github.com/MattCCC/nativescript-vue-router-extended/blob/master/src/typings/shims-vue.d.ts) file into your typings/ directory so to bring proper support in .vue files.
 
 ## API & Limitations
 
