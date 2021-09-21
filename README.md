@@ -164,6 +164,11 @@ export default {
         // before redirecting to another route with same path
         // You can use `this` inside of this hook
     },
+
+    mounted() {
+       // Output current route object with name, path etc.
+       console.log(this.$route);
+    },
 };
 </script>
 ```
