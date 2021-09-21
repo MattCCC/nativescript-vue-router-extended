@@ -6,12 +6,9 @@ import type {
 } from "vue-router/dist/vue-router.d";
 import type { RouterService } from "nativescript-vue-router-extended/router-service";
 
-declare module "*.vue" {
-  export default Vue;
-}
-
 declare module "vue/types/vue" {
   interface Vue {
+    $route: Route;
     $router: RouterService;
     $routeTo(route: Route | string, options?: RouteOptions): void;
   }

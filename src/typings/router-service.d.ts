@@ -1,6 +1,9 @@
 import {
     RouterOptions,
 } from 'vue-router';
+import {
+    NavigationEntryVue,
+} from 'nativescript-vue';
 
 export type RouteChildren = Route;
 export type ErrorCallback = Error | ((...args: any[]) => void);
@@ -18,6 +21,15 @@ export interface NSVueRouterOptions extends RouterOptions {
     history?: string;
 }
 
+export interface RouteOptions extends NavigationEntryVue {
+    /**
+     * List of route meta information
+     * Can contain a store object with action names as keys and payload as values.
+     * These actions will be dispatched once a particular route is navigated to
+     */
+    meta?: Record<string, any>;
+}
+
 export interface Route extends RouteOptions {
     path: string;
     name?: string;
@@ -26,40 +38,6 @@ export interface Route extends RouteOptions {
 
     beforeRouteEnter?: (to: Route, from: Route, next?: (vm: any) => void) => boolean;
     beforeRouteLeave?: (to: Route, from: Route, next?: (vm: any) => void) => boolean;
-}
-
-export interface RouteOptions {
-    /**
-     * List of route meta information
-     * Can contain a store object with action names as keys and payload as values.
-     * These actions will be dispatched once a particular route is navigated to
-     */
-    meta?: Record<string, any>;
-
-    /**
-     * Animation duration when switching a route
-     */
-    duration?: number;
-
-    /**
-     * Allows to pass props directly in $routeTo
-     */
-    props?: Record<string, any>;
-
-    /**
-     * Same as props, used internally for proper NS navigation support
-     */
-    context?: Record<string, any>;
-
-    /**
-     * Whether to clear previous records from the history
-     */
-    clearHistory?: boolean;
-
-    /**
-     * NativeScript compatible transition object
-     */
-    transition?: Record<string, any>;
 }
 
 export interface RouterServiceOptions {

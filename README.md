@@ -182,9 +182,7 @@ export default {
 | navigatedFrom  | -                   | This event is tricky to control for developers. There is no exact mapping of it in the router. For store state cleanup use build-in meta dispatcher instead. For component state you could opt for using `beforeRouteLeave()`. |
 
 ## TypeScript Support
-If you need a TS support and it's not detected in your project for some reason, you can use [typings/shims.vue.d.ts](https://github.com/MattCCC/nativescript-vue-router-extended/blob/master/src/typings/shims-vue.d.ts) to bring proper support in .vue files.
-
-Assuming that your node_modules/ directory is on same level, you can specify following line in your `references.d.ts` file:
+If you need a TS support and it's not detected automatically in your project for some reason, you can use [typings/shims.vue.d.ts](https://github.com/MattCCC/nativescript-vue-router-extended/blob/master/src/typings/shims-vue.d.ts) to bring proper support in .vue files. You can specify it in your `shims.vue.d.ts` file (attention! Please ensure that path is relative to your node_modules directory):
 ```
 /// <reference path="./node_modules/nativescript-vue-router-extended/typings/shims-vue.d.ts" />
 ```
