@@ -283,6 +283,8 @@ export class RouterService {
    */
   public setCurrentRoute(route: Route): void {
     this.currentRoute = route;
+
+    this.vm.$route = Object.assign(this.vm.$route, route);
   }
 
   /**

@@ -41,6 +41,13 @@ export const createRouter = (
     proto.$routeTo = router.push.bind(router);
     proto.$routeBack = router.back.bind(router);
     proto.$router = router;
+
+    const route = (Vue as any).observable({
+      name: '',
+      path: '',
+    });
+
+    proto.$route = route;
   }
 
   if (vm.mixin) {
