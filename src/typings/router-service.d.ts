@@ -1,5 +1,6 @@
 import {
     RouterOptions,
+    NavigationGuardNext,
 } from 'vue-router';
 import {
     NavigationEntryVue,
@@ -36,8 +37,7 @@ export interface Route extends RouteOptions {
     component?: Component;
     children?: RouteChildren;
 
-    beforeRouteEnter?: (to: Route, from: Route, next?: (vm: any) => void) => boolean;
-    beforeRouteLeave?: (to: Route, from: Route, next?: (vm: any) => void) => boolean;
+    beforeEnter?: (to: Route, from: Route, next?: NavigationGuardNext) => void;
 }
 
 export interface RouterServiceOptions {

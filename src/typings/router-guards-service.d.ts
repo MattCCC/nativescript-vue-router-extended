@@ -20,8 +20,6 @@ export type BeforeRouteEnter = (to: Route, from?: Route, next?: NextContext) => 
 
 export type BeforeRouteLeave = (to: Route, from?: Route, next?: NextContext) => void;
 
-export type NavigationGuardCallback = NavigationGuard;
-
 export interface GuardsInitArgs {
     to: Route;
     from?: Route;

@@ -1,10 +1,9 @@
 import {
   GuardReturnContext,
-  NavigationGuardCallback,
   NextContext,
 } from "./typings/router-guards-service";
 import { Route } from "./typings/router-service";
-import { NavigationHookAfter, RouteLocationNormalized } from "vue-router";
+import { NavigationGuard, NavigationHookAfter, RouteLocationNormalized } from "vue-router";
 
 /**
  * Single Guard Service
@@ -16,10 +15,10 @@ export class RouterGuardService {
    * List of Guard Callbacks
    *
    * @private
-   * @type {NavigationGuardCallback[]}
+   * @type {NavigationGuard[]}
    * @memberof RouterGuardService
    */
-  private guardCallbacks: NavigationGuardCallback[] = [];
+  private guardCallbacks: NavigationGuard[] = [];
 
   /**
    * Whether current navigation is cancelled from inside of guard
@@ -77,10 +76,10 @@ export class RouterGuardService {
   /**
    * Add a guard
    *
-   * @param {NavigationGuardCallback} callback The callback to be added to the guard
+   * @param {NavigationGuard} callback The callback to be added to the guard
    * @returns {void}
    */
-  public add(callback: NavigationGuardCallback): void {
+  public add(callback: NavigationGuard): void {
     this.guardCallbacks.push(callback);
   }
 

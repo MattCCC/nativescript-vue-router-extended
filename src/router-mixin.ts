@@ -1,5 +1,6 @@
 import Vue from "nativescript-vue";
 import { Page } from "@nativescript/core/ui/page";
+import { RouterService } from "./router-service";
 
 export default {
   nextCallbacks: [],
@@ -62,8 +63,8 @@ export default {
         return;
       }
 
-      const to = this.$router.getNewRoute();
-      const from = this.$router.getCurrentRoute();
+      const to = (this.$router as RouterService).getNewRoute();
+      const from = (this.$router as RouterService).getCurrentRoute();
 
       if (this.$options.beforeRouteLeave) {
         this.$options.beforeRouteLeave.call(
@@ -90,14 +91,36 @@ export default {
     },
 
     onNavigatingTo(data) {
-      const to = this.$router.getNewRoute();
-      const from = this.$router.getCurrentRoute();
+      const to = (this.$router as RouterService).getNewRoute();
+      const from = (this.$router as RouterService).getCurrentRoute();
 
       if (this.$options.beforeRouteUpdate && to && from && to.path === from.path) {
         this.$options.beforeRouteUpdate.call(
           this,
           to,
           from,
+          data.object.navigationContext
+        );
+      }
+
+      if (to.beforeEnter && typeof to.beforeEnter === "function") {
+        const next = (vmContext) => {
+          if (typeof vmContext === "undefined") {
+            return;
+          }
+
+          // Do not invoke callback immediately even though instance of new component is provided
+          // This is to keep cb invocation order in sync with Vue-Router
+          if (typeof vmContext === "function") {
+            this.$options.nextCallbacks.push(vmContext);
+          }
+        };
+
+        this.$options.beforeEnter.call(
+          this,
+          to,
+          from,
+          next,
           data.object.navigationContext
         );
       }
