@@ -134,6 +134,11 @@ router.beforeEach((to) => {
 this.$routeTo("/movies", {
   // Clear History is a NativeScript setting
   clearHistory: true,
+  
+  // Route inside of custom Frame
+  frame: "myFrameId",
+
+  // Pass props to the page
   props: {
     movieId: 12,
   },
