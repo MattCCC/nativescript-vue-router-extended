@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-vue-router-extended",
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"description": "NativeScript Vue Router Extended for NativeScript Vue hybrid Apps.",
 	"main": "index",
 	"typings": "index.d.ts",
