@@ -125,8 +125,8 @@ export class RouterService {
     this.frame = frame;
 
     this.routerGuardsService = new RouterGuardsService({
-      to: "",
-      from: "",
+      to: null,
+      from: null,
     });
   }
 
@@ -540,14 +540,14 @@ export class RouterService {
       return false;
     }
 
-    if (typeof context === "object" || typeof context === "string") {
-      this.navigateTo(context);
+    if (context instanceof Error) {
+      this.onError(context);
 
       return false;
     }
 
-    if (context instanceof Error) {
-      this.onError(context);
+    if (typeof context === "object" || typeof context === "string") {
+      this.navigateTo(context);
 
       return false;
     }
