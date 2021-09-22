@@ -189,7 +189,17 @@ If you need a TS support and it's not detected automatically in your project for
 
 ## API & Limitations
 
-This plugin aims for compatibility with Vue Router 3+ and Vue Router 4+. Both should be easily supported. Please refer to [Vue Router Docs](https://next.router.vuejs.org/guide/) for more information. There are some obvious limitations like lack of DOM accessibility and related events, or lack of <router-link /> component.
+<b>Vue Router compatibility</b>
+
+This plugin aims for compatibility with Vue Router 3+ and Vue Router 4+. Both should be easily supported. Please refer to [Vue Router Docs](https://next.router.vuejs.org/guide/) for more information.
+
+<b>DOM & related hooks</b>
+
+There are some limitations like lack of DOM accessibility and related hooks and guards.
+
+<b>RouterLink Component</b>
+
+There's a lack of <router-link /> component due to performance reasons.
 
 ## License
 
