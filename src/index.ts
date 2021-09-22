@@ -1,4 +1,4 @@
-import { createRouter } from "./vue-router.common";
+import { createRouter, useRouter, useRoute } from "./vue-router.common";
 export { Route, RouteOptions, RouterServiceOptions } from "./typings/router-service";
 
-export { createRouter };
+export { createRouter, useRouter, useRoute };

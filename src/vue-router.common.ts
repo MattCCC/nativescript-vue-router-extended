@@ -12,6 +12,8 @@ import { registerActionDispatcher } from "./router-dispatcher-service";
 
 import routerMixin from "./router-mixin";
 
+const routers = [] as RouterService[];
+
 /**
  * Create router wrapper function
  *
@@ -32,11 +34,15 @@ export const createRouter = (
     ...routerOptions,
   });
 
+  routers.push(router);
+
   // Vue 3 compatibility
   if (vm.createApp && vm.config.globalProperties) {
     vm.config.globalProperties.$routeTo = router.push.bind(router);
     vm.config.globalProperties.$routeBack = router.back.bind(router);
     vm.config.globalProperties.$router = router;
+
+    vm.provide('$router', router);
   } else {
     proto.$routeTo = router.push.bind(router);
     proto.$routeBack = router.back.bind(router);
@@ -60,6 +66,14 @@ export const createRouter = (
   }
 
   return router;
+};
+
+export const useRouter = (routerIndex = 0) => {
+  return routers[routerIndex];
+};
+
+export const useRoute = (routerIndex = 0) => {
+  return routers[routerIndex].getCurrentRoute();
 };
 
 export default {
