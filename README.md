@@ -67,12 +67,17 @@ const routes = [
     component: moviesPage,
     meta: {
       isVertical: true,
+      // Example actions to dispatch automatically when page is visited
+      // Remember that you need to implement actions in your Vuex store
       store: {
-        // This Vuex action will be called automatically
+        // Call action to hide navigation buttons
         showNavigationButtons: false,
 
-        // This Vuex action will be called automatically in "categories" modules with payload "all"
+        // Call "showMovies" action in "categories" module with payload "all"
         "categories/showMovies": "all",
+
+        // Call action without payload
+        showNavigationButtons: null,
       },
     },
   },
