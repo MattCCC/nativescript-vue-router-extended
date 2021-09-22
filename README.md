@@ -68,7 +68,11 @@ const routes = [
     meta: {
       isVertical: true,
       store: {
+        // This Vuex action will be called automatically
         showNavigationButtons: false,
+
+        // This Vuex action will be called automatically in "categories" modules with payload "all"
+        "categories/showMovies": "all",
       },
     },
   },
