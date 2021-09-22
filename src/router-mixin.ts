@@ -103,7 +103,7 @@ export default {
         );
       }
 
-      if (to.beforeEnter && typeof to.beforeEnter === "function") {
+      if (to && to.beforeEnter && typeof to.beforeEnter === "function") {
         const next = (vmContext) => {
           if (typeof vmContext === "undefined") {
             return;
@@ -116,7 +116,7 @@ export default {
           }
         };
 
-        this.$options.beforeEnter.call(
+        to.beforeEnter.call(
           this,
           to,
           from,
