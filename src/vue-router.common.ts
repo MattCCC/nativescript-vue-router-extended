@@ -33,10 +33,10 @@ export const createRouter = (
   });
 
   // Vue 3 compatibility
-  if (proto.config && proto.config.globalProperties) {
-    proto.config.globalProperties.$routeTo = router.push.bind(router);
-    proto.config.globalProperties.$routeBack = router.back.bind(router);
-    proto.config.globalProperties.$router = router;
+  if (vm.createApp && vm.config.globalProperties) {
+    vm.config.globalProperties.$routeTo = router.push.bind(router);
+    vm.config.globalProperties.$routeBack = router.back.bind(router);
+    vm.config.globalProperties.$router = router;
   } else {
     proto.$routeTo = router.push.bind(router);
     proto.$routeBack = router.back.bind(router);
