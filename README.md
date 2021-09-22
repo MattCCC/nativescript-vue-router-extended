@@ -65,6 +65,8 @@ const routes = [
   {
     path: "/movies",
     component: moviesPage,
+
+    // Optional
     meta: {
       isVertical: true,
       // Example actions to dispatch automatically when page is visited
@@ -79,6 +81,18 @@ const routes = [
         // Call action without payload
         showNavigationButtons: null,
       },
+    },
+
+    // Optional, per route guards are supported
+    // More info: https://next.router.vuejs.org/guide/advanced/navigation-guards.html#per-route-guard
+    beforeEnter: (to, from) => {
+      if (to.props.passUser) {
+         // Continue navigation
+         return true;
+      }
+
+      // Reject the navigation
+      return false;
     },
   },
 ];
@@ -105,7 +119,7 @@ const router = createRouter(
 
     // Do something straight before navigation or adjust NS routing settings
     routeBackCallback: (_to, options) => {
-      //
+      // Do something...
     },
 
     // Set Vue Instance (Vue.prototype by default)
