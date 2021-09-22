@@ -2,6 +2,7 @@ import type {
     NavigationGuard,
     NavigationGuardNext,
 } from 'vue-router';
+import type { Route } from "./router-service";
 
 export type NextCallback = (vm: any) => any;
 
