@@ -233,6 +233,11 @@ There's a lack of <router-link /> component due to performance reasons.
 
 All props are passed automatically to <Page /> components. Therefore you don't need to use `props: true` in your routes list.
 
+<b>Meta Dispatcher</b>
+
+An additional option that allows you to dispatch actions to Vuex store directly from routes list using `meta.store` object. To utilize it you may need to define `Vue.prototype.$store = store;` after to register your Vue store.
+
+
 ## License
 
 Apache License Version 2.0, January 2004
