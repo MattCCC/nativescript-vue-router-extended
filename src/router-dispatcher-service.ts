@@ -9,17 +9,17 @@ import { RouterService } from "./router-service";
  */
 export class RouterDispatcherService {
   /**
-   * Current store
+   * Current Vue instance
    */
-  public store: any;
+  public vm: any;
 
   /**
    * Constructor for the RouterDispatcherService
    *
-   * @param {store} store The app store
+   * @param {Vue} vm Vue Instance
    */
-  public constructor(store: any) {
-    this.store = store;
+  public constructor(vm: any) {
+    this.vm = vm;
   }
 
   /**
@@ -29,7 +29,13 @@ export class RouterDispatcherService {
    * @returns {boolean} If has finished dispatch or not
    */
   public dispatchFromMeta(meta: any): boolean {
-    if (!meta || !this.store) {
+    if (!meta || !this.vm) {
+      return false;
+    }
+
+    if (!this.vm.$store) {
+      console.error('META DISPATCHER', 'Store not found');
+
       return false;
     }
 
@@ -48,22 +54,22 @@ export class RouterDispatcherService {
    * @returns {Promise} Dispatched action result
    */
   public dispatch(type: string, payload: unknown): Promise<void> {
-    return this.store.dispatch(type, payload);
+    return this.vm.$store.dispatch(type, payload);
   }
 }
 
 /**
  * Registers generic action dispatcher
  *
- * @param {RouterService} router Vue-Router compatible class
- * @param {*} store Vuex Store Instance, or any other store that has a dispatch method exposed, with a type as 1st arg and payload as 2nd
+ * @param {RouterService} router  Vue-Router compatible class
+ * @param {*} vm                  Vue Instance
  * @returns {void}
  */
 export const registerActionDispatcher = (
   router: RouterService,
-  store: any
+  vm: any
 ): void => {
-  const dispatcherService = new RouterDispatcherService(store);
+  const dispatcherService = new RouterDispatcherService(vm);
 
   router.beforeResolve((to: Route, _from: Route, _next: NextContext) => {
     const route = router.getRoute(to);

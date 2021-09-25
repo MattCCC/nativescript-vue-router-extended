@@ -60,10 +60,7 @@ export const createRouter = (
     vm.mixin(routerMixin);
   }
 
-  // Register Action Dispatcher if store is available
-  if (proto.$store) {
-    registerActionDispatcher(router, proto.$store);
-  }
+  registerActionDispatcher(router, proto);
 
   return router;
 };
