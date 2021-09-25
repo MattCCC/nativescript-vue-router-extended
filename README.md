@@ -19,7 +19,7 @@ Please file an issue or make a PR if you spot any problems or you have any furth
 - [Usage & Examples](#usage-examples)
 - [New hooks for pages](#new-hooks-for-pages)
 - [TypeScript](#typescript)
-- [API & Limitations](#api-limitations)
+- [API Differences to Web](#api-differences-to-web)
 - [Troubleshooting](#troubleshooting)
 
 ## Features
@@ -215,7 +215,7 @@ If you need a TS support and it's not detected automatically in your project for
 /// <reference path="./node_modules/nativescript-vue-router-extended/typings/shims-vue.d.ts" />
 ```
 
-## API & Limitations
+## API Differences to Web
 
 <b>Vue Router compatibility</b>
 
@@ -228,6 +228,10 @@ There are some limitations like lack of DOM accessibility and related hooks and 
 <b>RouterLink Component</b>
 
 There's a lack of <router-link /> component due to performance reasons.
+
+<b>Passing props to pages</b>
+
+All props are passed automatically to <Page /> components. Therefore you don't need to use `props: true` in your routes list.
 
 ## License
 
