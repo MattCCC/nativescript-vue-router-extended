@@ -64,7 +64,7 @@ export default {
       }
 
       const to = (this.$router as RouterService).getNewRoute();
-      const from = (this.$router as RouterService).getCurrentRoute();
+      const from = (this.$router as RouterService).getPreviousRoute();
 
       if (this.$options.beforeRouteLeave) {
         this.$options.beforeRouteLeave.call(
@@ -92,7 +92,7 @@ export default {
 
     onNavigatingTo(data) {
       const to = (this.$router as RouterService).getNewRoute();
-      const from = (this.$router as RouterService).getCurrentRoute();
+      const from = (this.$router as RouterService).getPreviousRoute();
 
       if (this.$options.beforeRouteUpdate && to && from && to.path === from.path) {
         this.$options.beforeRouteUpdate.call(
