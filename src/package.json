@@ -51,7 +51,7 @@
 	"devDependencies": {
 		"@nativescript/core": "^7.1.0",
 		"@nativescript/types": "^7.1.0",
-		"@nativescript/webpack": "^4.0.0",
+		"@nativescript/webpack": "^5.0.31",
 		"@typescript-eslint/eslint-plugin": "^4.12.0",
 		"@typescript-eslint/eslint-plugin-tslint": "^4.12.0",
 		"@typescript-eslint/parser": "^4.12.0",
